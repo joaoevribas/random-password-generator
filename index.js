@@ -93,3 +93,29 @@ const characters = [
   "?",
   "/",
 ];
+
+// Grabbing all the elements from the html
+let btnEl = document.getElementById("btn-el");
+let passwordOne = document.querySelector(".password-one");
+let passwordTwo = document.querySelector(".password-two");
+
+// Function to get a random index from the characters array
+function getRandomIndex() {
+  let random = Math.floor(Math.random() * characters.length);
+  return random;
+}
+
+// Function to get a random password of 15 characters
+function getPassword() {
+  let string = "";
+  for (let i = 0; i < 15; i++) {
+    string += characters[getRandomIndex()];
+  }
+  return string;
+}
+
+// Onclick function for the generate passwords btn
+function generatePassword() {
+  passwordOne.textContent = getPassword();
+  passwordTwo.textContent = getPassword();
+}
